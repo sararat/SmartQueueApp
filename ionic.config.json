@@ -1,0 +1,7 @@
+{
+  "name": "SmartQueueApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
