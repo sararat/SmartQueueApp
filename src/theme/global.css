@@ -1,0 +1,28 @@
+
+/* ===== Smart Queue Toolbar ===== */
+ion-toolbar {
+  --background: #ffffff;
+  --color: #1e293b;
+  --border-color: #e2e8f0;
+  --min-height: 60px;
+}
+
+ion-toolbar ion-title {
+  color: #1e293b;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+ion-tab-bar {
+  --background: #a94b4b;
+  --border: 1px solid #e2e8f0;
+  --color: #64748b;
+  --color-selected: #2563eb;
+  height: 64px;
+}
+
+ion-tab-bar ion-tab-button {
+  --color: #64748b;
+  --color-selected: #2563eb;
+}

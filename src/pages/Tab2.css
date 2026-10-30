@@ -1,0 +1,179 @@
+.my-queue-content {
+  --background: #f5f7fb;
+}
+
+.my-queue-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 16px 32px;
+}
+
+.queue-welcome {
+  padding: 8px 4px 18px;
+}
+
+.queue-welcome h1 {
+  color: #172554;
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.queue-welcome p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.my-queue-card {
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+}
+
+.my-queue-banner {
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  text-align: center;
+  padding: 28px 16px 24px;
+  color: white;
+}
+
+.my-queue-banner > ion-icon {
+  font-size: 42px;
+}
+
+.my-queue-banner p {
+  margin: 12px 0 6px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.my-queue-banner h2 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0 0 14px;
+}
+
+.my-queue-banner ion-badge {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.my-queue-card ion-card-content {
+  padding: 20px;
+}
+
+.queue-restaurant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.queue-restaurant > ion-icon {
+  font-size: 28px;
+  color: #2563eb;
+}
+
+.queue-restaurant strong {
+  color: #172554;
+  font-size: 15px;
+}
+
+.queue-restaurant p {
+  color: #64748b;
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.queue-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 20px 0;
+}
+
+.queue-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.queue-detail-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.queue-detail-icon ion-icon {
+  font-size: 22px;
+  color: #2563eb;
+}
+
+.queue-detail-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.queue-detail-text span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.queue-detail-text strong {
+  color: #172554;
+  font-size: 15px;
+}
+
+.queue-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 14px;
+  margin: 8px 0 20px;
+  background: #f0fdf4;
+  border-radius: 12px;
+  color: #166534;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.queue-notice ion-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.empty-queue-card {
+  margin: 0;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.empty-queue-card ion-card-content {
+  padding: 36px 20px;
+}
+
+.empty-queue-icon {
+  font-size: 60px;
+  color: #94a3b8;
+}
+
+.empty-queue-card h2 {
+  color: #172554;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.empty-queue-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+ 
