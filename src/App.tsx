@@ -12,6 +12,7 @@ import {
 } from '@ionic/react';
 
 import { IonReactRouter } from '@ionic/react-router';
+import { setupIonicReact } from '@ionic/react';
 
 import {
   homeOutline,
@@ -36,7 +37,9 @@ import '@ionic/react/css/display.css';
 
 import './theme/variables.css';
 import './theme/global.css';
-
+setupIonicReact({
+  mode: 'ios'
+});
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
