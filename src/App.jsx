@@ -1,8 +1,5 @@
-
 import React from 'react';
-
 import { Navigate, Route } from 'react-router-dom';
-
 import {
   IonApp,
   IonIcon,
@@ -12,11 +9,8 @@ import {
   IonTabButton,
   IonTabs,
 } from '@ionic/react';
-
 import { IonReactRouter } from '@ionic/react-router';
-
 import { setupIonicReact } from '@ionic/react';
-
 import {
   homeOutline,
   ticketOutline,
@@ -44,53 +38,38 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './theme/global.css';
 
-// Setup Ionic
 setupIonicReact({
   mode: 'ios'
 });
 
-// Main App Component
 const App = () => {
-
   return (
     <IonApp>
-
       <IonReactRouter>
-
         <IonTabs>
-
-          {/* Page Routing */}
           <IonRouterOutlet>
-
             <Route
               path="/tab1"
               element={<Tab1 />}
             />
-
             <Route
               path="/tab2"
               element={<Tab2 />}
             />
-
             <Route
               path="/tab3"
               element={<Tab3 />}
             />
-
             <Route
               path="/"
               element={<Navigate to="/tab1" replace />}
             />
-
           </IonRouterOutlet>
-
-          {/* Bottom Navigation */}
           <IonTabBar
             slot="bottom"
             className="smart-queue-tab-bar"
           >
 
-            {/* Home Tab */}
             <IonTabButton
               tab="tab1"
               href="/tab1"
@@ -98,8 +77,6 @@ const App = () => {
               <IonIcon icon={homeOutline} />
               <IonLabel>หน้าหลัก</IonLabel>
             </IonTabButton>
-
-            {/* My Queue Tab */}
             <IonTabButton
               tab="tab2"
               href="/tab2"
@@ -107,8 +84,6 @@ const App = () => {
               <IonIcon icon={ticketOutline} />
               <IonLabel>คิวของฉัน</IonLabel>
             </IonTabButton>
-
-            {/* Profile Tab */}
             <IonTabButton
               tab="tab3"
               href="/tab3"
@@ -116,13 +91,9 @@ const App = () => {
               <IonIcon icon={personCircleOutline} />
               <IonLabel>โปรไฟล์</IonLabel>
             </IonTabButton>
-
           </IonTabBar>
-
         </IonTabs>
-
       </IonReactRouter>
-
     </IonApp>
   );
 };
