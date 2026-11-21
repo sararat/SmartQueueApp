@@ -21,7 +21,7 @@ import {
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
-
+import { QueueProvider } from './context/QueueContext';
 // Ionic CSS
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -45,55 +45,57 @@ setupIonicReact({
 const App = () => {
   return (
     <IonApp>
-      <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route
-              path="/tab1"
-              element={<Tab1 />}
-            />
-            <Route
-              path="/tab2"
-              element={<Tab2 />}
-            />
-            <Route
-              path="/tab3"
-              element={<Tab3 />}
-            />
-            <Route
-              path="/"
-              element={<Navigate to="/tab1" replace />}
-            />
-          </IonRouterOutlet>
-          <IonTabBar
-            slot="bottom"
-            className="smart-queue-tab-bar"
-          >
+      <QueueProvider>
+        <IonReactRouter>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route
+                path="/tab1"
+                element={<Tab1 />}
+              />
+              <Route
+                path="/tab2"
+                element={<Tab2 />}
+              />
+              <Route
+                path="/tab3"
+                element={<Tab3 />}
+              />
+              <Route
+                path="/"
+                element={<Navigate to="/tab1" replace />}
+              />
+            </IonRouterOutlet>
 
-            <IonTabButton
-              tab="tab1"
-              href="/tab1"
+            <IonTabBar
+              slot="bottom"
+              className="smart-queue-tab-bar"
             >
-              <IonIcon icon={homeOutline} />
-              <IonLabel>หน้าหลัก</IonLabel>
-            </IonTabButton>
-            <IonTabButton
-              tab="tab2"
-              href="/tab2"
-            >
-              <IonIcon icon={ticketOutline} />
-              <IonLabel>คิวของฉัน</IonLabel>
-            </IonTabButton>
-            <IonTabButton
-              tab="tab3"
-              href="/tab3"
-            >
-              <IonIcon icon={personCircleOutline} />
-              <IonLabel>โปรไฟล์</IonLabel>
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
-      </IonReactRouter>
+              <IonTabButton
+                tab="tab1"
+                href="/tab1"
+              >
+                <IonIcon icon={homeOutline} />
+                <IonLabel>หน้าหลัก</IonLabel>
+              </IonTabButton>
+              <IonTabButton
+                tab="tab2"
+                href="/tab2"
+              >
+                <IonIcon icon={ticketOutline} />
+                <IonLabel>คิวของฉัน</IonLabel>
+              </IonTabButton>
+              <IonTabButton
+                tab="tab3"
+                href="/tab3"
+              >
+                <IonIcon icon={personCircleOutline} />
+                <IonLabel>โปรไฟล์</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </IonReactRouter>
+      </QueueProvider>
     </IonApp>
   );
 };

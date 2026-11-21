@@ -1,4 +1,6 @@
+
 import React from 'react';
+
 import {
   IonPage,
   IonHeader,
@@ -23,18 +25,15 @@ import {
 } from 'ionicons/icons';
 
 import './Tab2.css';
+import { useQueue } from '../context/QueueContext';
 
 const Tab2 = () => {
+
+  // เรียกใช้ข้อมูลจาก Context API
+  const { queue, cancelQueue } = useQueue();
+
   // ตรวจสอบว่ามีคิวหรือไม่
-  const hasQueue = true;
-  // ข้อมูลคิวของลูกค้า
-  const queue = {
-    number: 'A-012',
-    restaurant: 'ร้านอาหารอร่อยดี',
-    peopleAhead: 7,
-    estimatedWait: 20,
-    status: 'กำลังรอคิว',
-  };
+  const hasQueue = queue !== null;
 
   // ฟังก์ชันยกเลิกคิว
   const handleCancelQueue = () => {
@@ -42,13 +41,16 @@ const Tab2 = () => {
     const confirmCancel = window.confirm(
       'คุณต้องการยกเลิกคิวนี้หรือไม่?'
     );
+
     if (confirmCancel) {
-      alert('ตัวอย่างระบบ: ยกเลิกคิวสำเร็จ');
+      cancelQueue();
+      alert('ยกเลิกคิวสำเร็จ');
     }
   };
 
   return (
     <IonPage>
+
       <IonHeader>
         <IonToolbar className="smart-queue-toolbar">
           <IonTitle>คิวของฉัน</IonTitle>
@@ -57,20 +59,27 @@ const Tab2 = () => {
 
       <IonContent className="my-queue-content">
         <div className="my-queue-container">
+
           <div className="queue-welcome">
             <h1>คิวของฉัน 🎫</h1>
             <p>ตรวจสอบสถานะคิวของคุณได้ที่นี่</p>
           </div>
+
           {hasQueue ? (
+
             <IonCard className="my-queue-card">
+
               <div className="my-queue-banner">
                 <IonIcon icon={ticketOutline} />
                 <p>หมายเลขคิวของคุณ</p>
+
                 <h2>{queue.number}</h2>
+
                 <IonBadge color="warning">
                   {queue.status}
                 </IonBadge>
               </div>
+
               <IonCardContent>
 
                 <div className="queue-restaurant">
@@ -80,11 +89,14 @@ const Tab2 = () => {
                     <p>รายละเอียดการจองคิว</p>
                   </div>
                 </div>
+
                 <div className="queue-divider" />
+
                 <div className="queue-detail-row">
                   <div className="queue-detail-icon">
                     <IonIcon icon={peopleOutline} />
                   </div>
+
                   <div className="queue-detail-text">
                     <span>จำนวนคิวก่อนหน้า</span>
                     <strong>{queue.peopleAhead} คิว</strong>
@@ -95,6 +107,7 @@ const Tab2 = () => {
                   <div className="queue-detail-icon">
                     <IonIcon icon={timeOutline} />
                   </div>
+
                   <div className="queue-detail-text">
                     <span>เวลารอโดยประมาณ</span>
                     <strong>{queue.estimatedWait} นาที</strong>
@@ -120,26 +133,34 @@ const Tab2 = () => {
                   />
                   ยกเลิกคิว
                 </IonButton>
+
               </IonCardContent>
             </IonCard>
+
           ) : (
 
             <IonCard className="empty-queue-card">
               <IonCardContent>
+
                 <IonIcon
                   icon={ticketOutline}
                   className="empty-queue-icon"
                 />
+
                 <h2>คุณยังไม่มีคิว</h2>
 
                 <p>
                   ไปที่หน้า Home เพื่อเลือกร้านอาหารและรับคิว
                 </p>
+
               </IonCardContent>
             </IonCard>
+
           )}
+
         </div>
       </IonContent>
+
     </IonPage>
   );
 };

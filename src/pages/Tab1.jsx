@@ -1,4 +1,7 @@
+
 import React from 'react';
+
+
 import {
   IonPage,
   IonHeader,
@@ -23,13 +26,33 @@ import {
 } from 'ionicons/icons';
 
 import './Tab1.css';
+import { useNavigate } from 'react-router-dom';
+import { useQueue } from '../context/QueueContext';
 const Tab1 = () => {
+ 
   const restaurantName = 'ร้านอาหารอร่อยดี';
   const waitingQueues = 8;
   const estimatedWait = 20;
 
+  // เรียกใช้ Router และ Context API
+  const navigate = useNavigate();
+  const { queue, takeQueue } = useQueue();
+
+  // ฟังก์ชันรับคิว
   const handleGetQueue = () => {
-    alert('รับคิวสำเร็จ! หมายเลขคิว A-012');
+    const alreadyHasQueue = Boolean(queue);
+
+    // สร้างคิวหรือเรียกคืนคิวเดิม
+    const newQueue = takeQueue();
+
+    if (alreadyHasQueue) {
+      alert(`คุณมีคิวอยู่แล้ว หมายเลข ${newQueue.number}`);
+    } else {
+      alert(`รับคิวสำเร็จ! หมายเลขคิว ${newQueue.number}`);
+    }
+
+    // ไปยังหน้า My Queue
+    navigate('/tab2');
   };
 
   return (
@@ -40,9 +63,11 @@ const Tab1 = () => {
           <IonTitle>Smart Queue</IonTitle>
         </IonToolbar>
       </IonHeader>
+
       {/* Main Content */}
       <IonContent className="home-content">
         <div className="home-container">
+
           <div className="welcome-section">
             <p className="welcome-label">ยินดีต้อนรับ</p>
             <h1>หิวแล้วใช่ไหม?</h1>
@@ -62,9 +87,11 @@ const Tab1 = () => {
 
             <IonCardContent>
               <h2>{restaurantName}</h2>
+
               <p className="restaurant-description">
                 อาหารอร่อย สดใหม่ บริการรวดเร็ว
               </p>
+
               {/* Restaurant Information */}
               <div className="restaurant-info">
                 <div className="info-item">
@@ -74,6 +101,7 @@ const Tab1 = () => {
                     <span>รออยู่ขณะนี้</span>
                   </div>
                 </div>
+
                 <div className="info-item">
                   <IonIcon icon={timeOutline} />
                   <div>
@@ -83,25 +111,21 @@ const Tab1 = () => {
                 </div>
               </div>
 
+              {/* Get Queue Button */}
               <IonButton
                 expand="block"
                 size="large"
                 onClick={handleGetQueue}
                 className="get-queue-button"
               >
-                <IonIcon
-                  slot="start"
-                  icon={ticketOutline}
-                />
+                <IonIcon slot="start" icon={ticketOutline} />
                 รับคิวเลย
-                <IonIcon
-                  slot="end"
-                  icon={arrowForwardOutline}
-                />
+                <IonIcon slot="end" icon={arrowForwardOutline} />
               </IonButton>
             </IonCardContent>
           </IonCard>
 
+          {/* Queue Status */}
           <div className="section-heading">
             <h2>สถานะคิวของร้าน</h2>
           </div>
@@ -117,9 +141,11 @@ const Tab1 = () => {
                   <strong>ระบบรับคิวพร้อมใช้งาน</strong>
                 </IonText>
               </div>
+
               <p>
                 ขณะนี้มีลูกค้ารอรับบริการ {waitingQueues} คิว
               </p>
+
               <div className="queue-progress">
                 <div className="queue-progress-bar" />
               </div>
@@ -131,9 +157,11 @@ const Tab1 = () => {
             </IonCardContent>
           </IonCard>
 
+          {/* Steps */}
           <div className="section-heading">
             <h2>ใช้งานง่ายใน 3 ขั้นตอน</h2>
           </div>
+
           <div className="steps-container">
             <div className="step-item">
               <div className="step-number">1</div>
@@ -159,6 +187,7 @@ const Tab1 = () => {
               </div>
             </div>
           </div>
+
         </div>
       </IonContent>
     </IonPage>
